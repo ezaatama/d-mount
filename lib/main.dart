@@ -1,5 +1,4 @@
-import 'package:d_mount/views/bloc/gunung_bloc.dart';
-import 'package:d_mount/views/card/list_gunung_page.dart';
+import '/views/bloc/gunung_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '/views/screens/daftar_gunung.dart';
