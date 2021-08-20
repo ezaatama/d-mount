@@ -5,75 +5,111 @@ import '../../theme.dart';
 class GeneralPage extends StatelessWidget {
   final String title;
   final Widget child;
-  final Color colorBackogrund;
 
-  GeneralPage(
-      {required this.title,
-      required this.child,
-      required this.colorBackogrund});
+  GeneralPage({required this.title, required this.child});
+
+  var scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: colorBackogrund,
-        title: Text(title),
-      ),
-      drawer: Theme(
-        data: Theme.of(context).copyWith(canvasColor: backgroundColor),
-        child: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
+      key: scaffoldKey,
+      drawer: SafeArea(
+          child: Drawer(
+              child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          Stack(
             children: [
-              DrawerHeader(
-                  child: Text(
-                "Menu",
-                style: whiteTitle.copyWith(
-                  fontSize: 18,
-                  fontWeight: bold,
-                ),
-              )),
               Container(
+                  height: 120,
                   decoration: BoxDecoration(
-                    color: whiteColor,
-                  ),
+                      color: backgroundColor,
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(30),
+                          bottomLeft: Radius.circular(30)))),
+              Container(
+                margin: const EdgeInsets.only(left: 35, top: 35),
+                child: Text(
+                  "Menu",
+                  style: whiteTitle.copyWith(fontSize: 30, fontWeight: bold),
+                ),
+              ),
+            ],
+          ),
+          Container(
+                margin: const EdgeInsets.only(left: 25),
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text("Daftar Gunung"),
+                      title: Text(
+                        "Daftar Gunung",
+                        style: blueCaption.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      ),
                       onTap: () =>
                           Navigator.of(context).pushNamed('/daftar-gunung'),
                     ),
                     ListTile(
-                      title: Text("Info Basecamp"),
+                      title: Text(
+                        "Info Basecamp",
+                        style: blueCaption.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      ),
                       onTap: () =>
                           Navigator.of(context).pushNamed('/info-basecamp'),
                     ),
                     ListTile(
-                      title: Text("Alat Pendakian"),
+                      title: Text(
+                        "Alat Pendakian",
+                        style: blueCaption.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      ),
                       onTap: () =>
                           Navigator.of(context).pushNamed('/alat-pendakian'),
                     ),
                     ListTile(
-                      title: Text("Panduan Mendaki"),
+                      title: Text(
+                        "Panduan Mendaki",
+                        style: blueCaption.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      ),
                       onTap: () =>
                           Navigator.of(context).pushNamed('/panduan-mendaki'),
                     ),
                     ListTile(
-                      title: Text("Tentang D'Mount"),
+                      title: Text(
+                        "Tentang D'Mount",
+                        style: blueCaption.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      ),
                       onTap: () => Navigator.of(context).pushNamed('/tentang'),
                     ),
                   ],
                 ),
               ),
-            ],
+        ],
+      ))),
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            scaffoldKey.currentState!.openDrawer();
+          },
+          icon: Icon(
+            Icons.notes_rounded,
+            color: darkColor,
+            size: 30,
           ),
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          title,
+          style: darkCaption.copyWith(fontSize: 30, fontWeight: bold),
+        ),
       ),
-      body: Container(
-        margin: const EdgeInsets.only(top: 23, left: 30, right: 30),
-        child: child,
-      )
+      body: child,
     );
   }
 }
