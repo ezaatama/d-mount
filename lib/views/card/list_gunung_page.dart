@@ -1,5 +1,5 @@
 import 'package:d_mount/theme.dart';
-import '/views/bloc/gunung_bloc.dart';
+import '/views/bloc/gunung/gunung_bloc.dart';
 import '/views/models/gunung_model.dart';
 import '/views/screens/detail_gunung.dart';
 import 'package:flutter/material.dart';

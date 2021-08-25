@@ -57,7 +57,7 @@ class GeneralPage extends StatelessWidget {
                             fontSize: 16, fontWeight: medium),
                       ),
                       onTap: () =>
-                          Navigator.of(context).pushNamed('/info-basecamp'),
+                          Navigator.of(context).pushNamed('/daftar-basecamp'),
                     ),
                     ListTile(
                       title: Text(
