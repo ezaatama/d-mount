@@ -63,7 +63,7 @@ class GridCategory extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed('/'),
+              onTap: () => Navigator.of(context).pushNamed('/daftar-alat'),
               child: Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
